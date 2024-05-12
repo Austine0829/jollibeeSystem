@@ -33,27 +33,45 @@ class jollibeeSystem{
      int productPrice;
 
     public:
-     string orderStorageOne[17];
+     string orderStorageOne[18];
      string orderStorageTwo[18];
      string orderStorageThree[17];
      string orderStorageFour[9];
      string orderStorageFive[17];
+     string orderStorageSix[2];
+     string orderStorageSeven[14];
+     string orderStorageEight[10];
+     string orderStorageNine[12];
+     string orderStorageTen[3];
      int quantity[17];
      int quantityTwo[18];
      int quantityThree[17];
      int quantityFour[9];
      int quantityFive[17];
-     int size[5] = {sizeof(orderStorageOne)/sizeof(orderStorageOne[0]),
+     int quantitySix[2];
+     int quantitySeven[14];
+     int quantityEight[10];
+     int quantityNine[12];
+     int quantityTen[3];
+     int size[10] = {sizeof(orderStorageOne)/sizeof(orderStorageOne[0]),
                     sizeof(orderStorageTwo)/sizeof(orderStorageTwo[0]),
                     sizeof(orderStorageThree)/sizeof(orderStorageThree[0]),
                     sizeof(orderStorageFour)/sizeof(orderStorageFour[0]),
-                    sizeof(orderStorageFive)/sizeof(orderStorageFive[0])};
+                    sizeof(orderStorageFive)/sizeof(orderStorageFive[0]),
+                    sizeof(orderStorageSix)/sizeof(orderStorageSix[0]),
+                    sizeof(orderStorageSeven)/sizeof(orderStorageSeven[0]),
+                    sizeof(orderStorageEight)/sizeof(orderStorageEight[0]),
+                    sizeof(orderStorageNine)/sizeof(orderStorageNine[0]),
+                    sizeof(orderStorageTen)/sizeof(orderStorageTen[0])};
      int totalBill = 0;
      
     public:
      jollibeeSystem(string productName, int productPrice){
         this->productName = productName;
         this->productPrice = productPrice;
+     }
+
+     ~jollibeeSystem(){
      }
 
      void printProduct(){
@@ -125,20 +143,59 @@ class jollibeeSystem{
          cout << "|\t\t\t  YOU ORDERED THE FOLLOWING ITEMS                          |\n";
          cout << "------------------------------------------------------------------------------------\n";
     
-    
-
-        for (int i = 0; i < size[0], size[1], size[2], size[3], size[4]; i++)
+        for (int i = 0; i < size[i]; i++)
         {
-            if (!orderStorageOne[i].empty() && !orderStorageTwo[i].empty() && !orderStorageThree[i].empty() && !orderStorageFour[i].empty() && !orderStorageFive[i].empty())
+            if (!orderStorageOne[i].empty())
             {
                  cout << orderStorageOne[i] << " " << quantity[i] << "x\n";
+            }
+
+            else if (!orderStorageTwo[i].empty())
+            {
                  cout << orderStorageTwo[i] << " " << quantityTwo[i] << "x\n";
+            }
+            
+            else if (!orderStorageThree[i].empty())
+            {
                  cout << orderStorageThree[i] << " " << quantityThree[i] << "x\n";
+            }
+            
+            else if (!orderStorageFour[i].empty())
+            {
                  cout << orderStorageFour[i] << " " << quantityFour[i] << "x\n";
+            }
+
+            else if (!orderStorageFive[i].empty())
+            {
                  cout << orderStorageFive[i] << " " << quantityFive[i] << "x\n";
-            }  
+            }
+
+            else if (!orderStorageSix[i].empty())
+            {
+                 cout << orderStorageSix[i] << " " << quantitySix[i] << "x\n";
+            }
+
+            else if (!orderStorageSeven[i].empty())
+            {
+                 cout << orderStorageSeven << " " << quantitySeven[i] << "x\n";
+            }
+
+            else if (!orderStorageEight[i].empty())
+            {
+                 cout << orderStorageEight[i] << " " << quantityEight[i] << "x\n";
+            }
+
+            else if (!orderStorageNine[i].empty())
+            {
+                 cout << orderStorageNine[i] << " " << quantityNine[i] << "x\n";
+            }
+            
+            else if (!orderStorageTen[i].empty())
+            {
+                 cout << orderStorageTen[i] << " " << quantityTen[i] << "x\n";
+            }
         }
-     
+
         cout << "------------------------------------------------------------------------------------\n"; 
         cout << "|Total Bill: " << totalBill << "\n";
         cout << "------------------------------------------------------------------------------------\n";        
@@ -185,6 +242,11 @@ class orderingSystem : public jollibeeSystem{
      void familyMealsFunc();
      void breakfastFunc();
      void chickenjoyFunc();
+     void chickenNuggetsFunc();
+     void burgersFunc();
+     void jollySpaghettiFunc();
+     void burgerSteakFunc();
+     void superMealsFunc();
 };
 
 class userSystem : public orderingSystem{
@@ -449,6 +511,36 @@ void orderingSystem :: jollibeeMenuFunc(){
 
         break;
 
+    case 6:
+
+         chickenNuggetsFunc();
+
+        break;
+
+    case 7:
+
+         burgersFunc();
+
+        break;
+
+    case 8:
+
+         jollySpaghettiFunc();
+
+        break;
+
+    case 9:
+
+         burgerSteakFunc();
+
+        break;
+
+    case 10:
+
+         superMealsFunc();
+
+        break;
+
     case 00:
 
          confirmBillFunc();
@@ -532,16 +624,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[0];
+             cout << "Enter Quantity: ";
+             cin >> quantity[0];
 
-            totalBill += prodOne.productPrice * quantity[0];
-            orderStorageOne[0] += prodOne.productName; 
+             totalBill += prodOne.productPrice * quantity[0];
+             orderStorageOne[0] += prodOne.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
     
         break;
@@ -558,16 +650,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[1];
+             cout << "Enter Quantity: ";
+             cin >> quantity[1];
 
-            totalBill += prodTwo.productPrice * quantity[1];
-            orderStorageOne[1] += prodTwo.productName; 
+             totalBill += prodTwo.productPrice * quantity[1];
+             orderStorageOne[1] += prodTwo.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -584,16 +676,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[2];
+             cout << "Enter Quantity: ";
+             cin >> quantity[2];
 
-            totalBill += prodThree.productPrice * quantity[2];
-            orderStorageOne[2] += prodThree.productName; 
+             totalBill += prodThree.productPrice * quantity[2];
+             orderStorageOne[2] += prodThree.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -610,16 +702,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[3];
+             cout << "Enter Quantity: ";
+             cin >> quantity[3];
 
-            totalBill += prodFour.productPrice * quantity[3];
-            orderStorageOne[3] += prodFour.productName; 
+             totalBill += prodFour.productPrice * quantity[3];
+             orderStorageOne[3] += prodFour.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -636,16 +728,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[4];
+             cout << "Enter Quantity: ";
+             cin >> quantity[4];
 
-            totalBill += prodFive.productPrice * quantity[4];
-            orderStorageOne[4] += prodFive.productName; 
+             totalBill += prodFive.productPrice * quantity[4];
+             orderStorageOne[4] += prodFive.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -662,16 +754,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[5];
+             cout << "Enter Quantity: ";
+             cin >> quantity[5];
 
-            totalBill += prodSix.productPrice * quantity[5];
-            orderStorageOne[5] += prodSix.productName; 
+             totalBill += prodSix.productPrice * quantity[5];
+             orderStorageOne[5] += prodSix.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -688,16 +780,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[6];
+             cout << "Enter Quantity: ";
+             cin >> quantity[6];
 
-            totalBill += prodSeven.productPrice * quantity[6];
-            orderStorageOne[6] += prodSeven.productName; 
+             totalBill += prodSeven.productPrice * quantity[6];
+             orderStorageOne[6] += prodSeven.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -714,16 +806,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[7];
+             cout << "Enter Quantity: ";
+             cin >> quantity[7];
 
-            totalBill += prodEight.productPrice * quantity[7];
-            orderStorageOne[7] += prodEight.productName; 
+             totalBill += prodEight.productPrice * quantity[7];
+             orderStorageOne[7] += prodEight.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -740,16 +832,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[8];
+             cout << "Enter Quantity: ";
+             cin >> quantity[8];
 
-            totalBill += prodNine.productPrice * quantity[8];
-            orderStorageOne[8] += prodNine.productName; 
+             totalBill += prodNine.productPrice * quantity[8];
+             orderStorageOne[8] += prodNine.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -766,16 +858,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[9];
+             cout << "Enter Quantity: ";
+             cin >> quantity[9];
 
-            totalBill += prodTen.productPrice * quantity[9];
-            orderStorageOne[9] += prodTen.productName; 
+             totalBill += prodTen.productPrice * quantity[9];
+             orderStorageOne[9] += prodTen.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -792,16 +884,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[10];
+             cout << "Enter Quantity: ";
+             cin >> quantity[10];
 
-            totalBill += prodEleven.productPrice * quantity[10];
-            orderStorageOne[10] += prodEleven.productName; 
+             totalBill += prodEleven.productPrice * quantity[10];
+             orderStorageOne[10] += prodEleven.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -819,16 +911,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[11];
+             cout << "Enter Quantity: ";
+             cin >> quantity[11];
 
-            totalBill += prodTwelve.productPrice * quantity[11];
-            orderStorageOne[11] += prodTwelve.productName; 
+             totalBill += prodTwelve.productPrice * quantity[11];
+             orderStorageOne[11] += prodTwelve.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -845,16 +937,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[12];
+             cout << "Enter Quantity: ";
+             cin >> quantity[12];
 
-            totalBill += prodThirteen.productPrice * quantity[12];
-            orderStorageOne[12] += prodThirteen.productName; 
+             totalBill += prodThirteen.productPrice * quantity[12];
+             orderStorageOne[12] += prodThirteen.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -871,16 +963,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[13];
+             cout << "Enter Quantity: ";
+             cin >> quantity[13];
 
-            totalBill += prodFourteen.productPrice * quantity[13];
-            orderStorageOne[13] += prodFourteen.productName; 
+             totalBill += prodFourteen.productPrice * quantity[13];
+             orderStorageOne[13] += prodFourteen.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -898,16 +990,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[14];
+             cout << "Enter Quantity: ";
+             cin >> quantity[14];
 
-            totalBill += prodFifteen.productPrice * quantity[14];
-            orderStorageOne[14] += prodFifteen.productName; 
+             totalBill += prodFifteen.productPrice * quantity[14];
+             orderStorageOne[14] += prodFifteen.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -924,16 +1016,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[15];
+             cout << "Enter Quantity: ";
+             cin >> quantity[15];
 
-            totalBill += prodSixteen.productPrice * quantity[15];
-            orderStorageOne[15] += prodSixteen.productName; 
+             totalBill += prodSixteen.productPrice * quantity[15];
+             orderStorageOne[15] += prodSixteen.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break;
@@ -950,16 +1042,16 @@ do
 
         if (choice == 1)
         {   
-            cout << "Enter Quantity: ";
-            cin >> quantity[16];
+             cout << "Enter Quantity: ";
+             cin >> quantity[16];
 
-            totalBill += prodSeventeen.productPrice * quantity[16];
-            orderStorageOne[16] += prodSeventeen.productName; 
+             totalBill += prodSeventeen.productPrice * quantity[16];
+             orderStorageOne[16] += prodSeventeen.productName; 
         }
         
         else
         {
-            bestSellersFunc();
+             bestSellersFunc();
         }
 
         break; 
@@ -973,6 +1065,8 @@ do
          cout << "------------------------------\n";
          cout << "|\tInvalid Choice!      |\n";
          cout << "------------------------------\n";
+
+         bestSellersFunc();
         
         break;
     }
@@ -982,6 +1076,7 @@ do
 while (choice != 0); 
 
 jollibeeMenuFunc(); 
+
 }
 
 void orderingSystem :: newProductsFunc(){
@@ -1038,7 +1133,7 @@ do
      cin >> choice;
 
     switch (choice)
-        {
+    {
     case 1:
                
         prodOne.printProduct();
@@ -2363,7 +2458,7 @@ void orderingSystem :: chickenjoyFunc(){
 
 do
 {
-     
+
     cout << "---------------------------------------------------------------------------------\n";
     cout << "|\t\t\t   JOLLIBEE BEST SELLER MENU                            |\n";
     cout << "---------------------------------------------------------------------------------\n";
@@ -2845,6 +2940,1358 @@ do
          cout << "------------------------------\n";
                
          chickenjoyFunc();  
+
+        break;
+    }
+} 
+    
+while (choice != 0);
+
+jollibeeMenuFunc();
+
+}
+
+void orderingSystem :: chickenNuggetsFunc(){
+
+    orderingSystem prodOne("6-pc. Chicken Nuggets", 105);
+    orderingSystem prodTwo("10-pc. Chicken Nuggets", 186);
+
+    int choice;
+
+do  
+{
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|\t\t\t   JOLLIBEE BEST SELLER MENU                            |\n";
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|[1]" << prodOne.productName << "\n";
+    cout << "|[2]" << prodTwo.productName << "\n";
+    cout << "|[0]Back\n";
+    cout << "---------------------------------------------------------------------------------\n";
+     
+    cout << "Enter Choice: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+        
+        prodOne.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySix[0];
+
+             totalBill += prodOne.productPrice * quantitySix[0];
+             orderStorageSix[0] += prodOne.productName; 
+        }
+        
+        else
+        {
+             chickenNuggetsFunc();
+        }
+
+        break;
+
+    case 2:
+
+        prodTwo.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySix[1];
+
+             totalBill += prodTwo.productPrice * quantitySix[1];
+             orderStorageSix[1] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             chickenNuggetsFunc();
+        }
+
+        break;
+
+    case 0:
+
+        break;
+    
+    default:
+        
+         cout << "------------------------------\n";
+         cout << "|\tInvalid Choice!      |\n";
+         cout << "------------------------------\n";
+
+         chickenNuggetsFunc();
+
+        break;
+    }
+} 
+
+while (choice != 0);
+
+jollibeeMenuFunc();
+    
+}
+
+void orderingSystem :: burgersFunc(){
+
+    orderingSystem prodOne("Burger Bundle", 382);
+    orderingSystem prodTwo("Yumburger Family Savers", 276);
+    orderingSystem prodThree("Yumburger", 40);
+    orderingSystem prodFour("Cheesy Yumburger", 69);
+    orderingSystem prodFive("Bacon Cheesy Yumburger", 96);
+    orderingSystem prodSix("Amazing Aloha Champ Burger Jr.", 125);
+    orderingSystem prodSeven("Champ Jr.", 105);
+    orderingSystem prodEight("Amazing Aloha Champ Jr. w/o Bacon", 122);
+    orderingSystem prodNine("Double Amazing Aloha Champ Jr.", 170);
+    orderingSystem prodTen("Double Amazing Aloha Champ Jr. w/o Bacon", 159);
+    orderingSystem prodEleven("Champ", 179);
+    orderingSystem prodTwelve("Aloha Champ", 246);
+    orderingSystem prodThirteen("Jolly Spaghetti w/Yumburger", 122);
+    orderingSystem prodFourteen("Yumburger, Half Jolly Spaghetti & Reg.Fries Super Meal", 137);
+    
+    int choice;
+
+do
+{
+        
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|\t\t\t   JOLLIBEE BEST SELLER MENU                            |\n";
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|[1]" << prodOne.productName << "\n";
+    cout << "|[2]" << prodTwo.productName << "\n";
+    cout << "|[3]" << prodThree.productName << "\n";
+    cout << "|[4]" << prodFour.productName << "\n";
+    cout << "|[5]" << prodFive.productName << "\n";
+    cout << "|[6]" << prodSix.productName << "\n";
+    cout << "|[7]" << prodSeven.productName << "\n";
+    cout << "|[8]" << prodEight.productName << "\n";
+    cout << "|[9]" << prodNine.productName << "\n";
+    cout << "|[10]" << prodTen.productName << "\n";
+    cout << "|[11]" << prodEleven.productName << "\n";
+    cout << "|[12]" << prodTwelve.productName << "\n";
+    cout << "|[13]" << prodThirteen.productName << "\n";
+    cout << "|[14]" << prodFourteen.productName << "\n";
+    cout << "|[0]Back\n";
+    cout << "---------------------------------------------------------------------------------\n";
+     
+    cout << "Enter Choice: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+               
+        prodOne.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+        cout << "Enter Quantity: ";
+        cin >> quantitySeven[0];
+
+             totalBill += prodOne.productPrice * quantitySeven[0];
+             orderStorageSeven[0] += prodOne.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 2:
+            
+        prodTwo.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[1];
+
+             totalBill += prodTwo.productPrice * quantitySeven[1];
+             orderStorageSeven[1] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 3:
+              
+        prodThree.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[2];
+
+             totalBill += prodThree.productPrice * quantitySeven[2];
+             orderStorageSeven[2] += prodThree.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 4:
+
+        prodFour.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[3];
+
+             totalBill += prodFour.productPrice * quantitySeven[3];
+             orderStorageSeven[3] += prodFour.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 5:
+
+        prodFive.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[4];
+
+             totalBill += prodFive.productPrice * quantitySeven[4];
+             orderStorageSeven[4] += prodFive.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 6:
+            
+        prodSix.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[5];
+
+             totalBill += prodSix.productPrice * quantitySeven[5];
+             orderStorageSeven[5] += prodSix.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 7: 
+
+        prodSeven.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[6];
+
+             totalBill += prodSeven.productPrice * quantitySeven[6];
+             orderStorageSeven[6] += prodSeven.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 8:
+
+        prodEight.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[7];
+
+             totalBill += prodEight.productPrice * quantitySeven[7];
+             orderStorageSeven[7] += prodEight.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 9:
+
+        prodNine.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[8];
+
+             totalBill += prodNine.productPrice * quantitySeven[8];
+             orderStorageSeven[8] += prodNine.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 10:
+
+        prodTen.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[9];
+
+             totalBill += prodTwo.productPrice * quantitySeven[9];
+             orderStorageSeven[9] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 11:
+
+        prodEleven.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[10];
+
+             totalBill += prodEleven.productPrice * quantitySeven[10];
+             orderStorageSeven[10] += prodEleven.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 12:
+             
+        prodTwelve.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[11];
+
+             totalBill += prodTwelve.productPrice * quantitySeven[11];
+             orderStorageSeven[11] += prodTwelve.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 13:
+
+        prodThirteen.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[12];
+
+             totalBill += prodThirteen.productPrice * quantitySeven[12];
+             orderStorageSeven[12] += prodThirteen.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 14:
+            
+        prodFourteen.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantitySeven[13];
+
+             totalBill += prodFourteen.productPrice * quantitySeven[13];
+             orderStorageSeven[13] += prodFourteen.productName; 
+        }
+        
+        else
+        {
+             burgersFunc();
+        }
+
+        break;
+
+    case 0:
+
+        break;
+        
+    default:
+
+         cout << "------------------------------\n";
+         cout << "|\tInvalid Choice!      |\n";
+         cout << "------------------------------\n";
+               
+         burgersFunc();  
+
+        break;
+    }
+} 
+    
+while (choice != 0);
+
+jollibeeMenuFunc();
+
+}
+
+void orderingSystem :: jollySpaghettiFunc(){
+
+    orderingSystem prodOne("Jolly Spaghetti Family Pan", 237);
+    orderingSystem prodTwo("Chicken Bucket w/Rice Jolly Spaghetti & Drins", 758);
+    orderingSystem prodThree("6-pc. Burger Steak w/Jolly Spaghetti Family Pan", 570);
+    orderingSystem prodFour("8-pc. Burger Steak w/Jolly Spaghetti Family Pan", 650);
+    orderingSystem prodFive("Jolly Spaghetti", 60);
+    orderingSystem prodSix("Jolly Spaghetti w/Yumburger", 122);
+    orderingSystem prodSeven("Jolly Spaghetti w/Fries & Drinks", 133);
+    orderingSystem prodEight("Jolly Spaghetti w/Burger Steak", 108);
+    orderingSystem prodNine("1-pc. Chickenjoy w/Burger Steak & Half Jolly Spaghetti Super Meal", 212);
+    orderingSystem prodTen("Yumburger, Half Jolly Spaghetti & Reg.Fries Super Meal", 137);
+
+    int choice;
+
+do
+{
+        
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|\t\t\t   JOLLIBEE BEST SELLER MENU                            |\n";
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|[1]" << prodOne.productName << "\n";
+    cout << "|[2]" << prodTwo.productName << "\n";
+    cout << "|[3]" << prodThree.productName << "\n";
+    cout << "|[4]" << prodFour.productName << "\n";
+    cout << "|[5]" << prodFive.productName << "\n";
+    cout << "|[6]" << prodSix.productName << "\n";
+    cout << "|[7]" << prodSeven.productName << "\n";
+    cout << "|[8]" << prodEight.productName << "\n";
+    cout << "|[9]" << prodNine.productName << "\n";
+    cout << "|[10]" << prodTen.productName << "\n";
+    cout << "|[0]Back\n";
+    cout << "---------------------------------------------------------------------------------\n";
+     
+    cout << "Enter Choice: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+               
+        prodOne.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+        cout << "Enter Quantity: ";
+        cin >> quantityEight[0];
+
+             totalBill += prodOne.productPrice * quantityEight[0];
+             orderStorageEight[0] += prodOne.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 2:
+            
+        prodTwo.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[1];
+
+             totalBill += prodTwo.productPrice * quantityEight[1];
+             orderStorageEight[1] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 3:
+              
+        prodThree.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[2];
+
+             totalBill += prodThree.productPrice * quantityEight[2];
+             orderStorageEight[2] += prodThree.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 4:
+
+        prodFour.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[3];
+
+             totalBill += prodFour.productPrice * quantityEight[3];
+             orderStorageEight[3] += prodFour.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 5:
+
+        prodFive.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[4];
+
+             totalBill += prodFive.productPrice * quantityEight[4];
+             orderStorageEight[4] += prodFive.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 6:
+            
+        prodSix.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[5];
+
+             totalBill += prodSix.productPrice * quantityEight[5];
+             orderStorageEight[5] += prodSix.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 7: 
+
+        prodSeven.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[6];
+
+             totalBill += prodSeven.productPrice * quantityEight[6];
+             orderStorageEight[6] += prodSeven.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 8:
+
+        prodEight.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[7];
+
+             totalBill += prodEight.productPrice * quantityEight[7];
+             orderStorageEight[7] += prodEight.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 9:
+
+        prodNine.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[8];
+
+             totalBill += prodNine.productPrice * quantityEight[8];
+             orderStorageEight[8] += prodNine.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 10:
+
+        prodTen.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityEight[9];
+
+             totalBill += prodTwo.productPrice * quantityEight[9];
+             orderStorageEight[9] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             jollySpaghettiFunc();
+        }
+
+        break;
+
+    case 0:
+
+        break;
+        
+    default:
+
+         cout << "------------------------------\n";
+         cout << "|\tInvalid Choice!      |\n";
+         cout << "------------------------------\n";
+               
+         jollySpaghettiFunc();  
+
+        break;
+    }
+} 
+    
+while (choice != 0);
+
+jollibeeMenuFunc();
+
+}
+
+void orderingSystem :: burgerSteakFunc(){
+
+    orderingSystem prodOne("Burger Steak Family Savers", 329);
+    orderingSystem prodTwo("6-pc. Burger Steak Family Pan", 355);
+    orderingSystem prodThree("8-pc. Burger Steak Family Pan", 470);
+    orderingSystem prodFour("6-pc. Burger Steak w/Jolly Spaghetti Family Pan", 570);
+    orderingSystem prodFive("8-pc. Burger Steak w/Jolly Spaghetti Family Pan", 650);
+    orderingSystem prodSix("6-pc. Burger Steak w/Palabok Family Pan", 827);
+    orderingSystem prodSeven("8-pc. Burger Steak w/Palabok Family Pan", 923);
+    orderingSystem prodEight("1-pc. Burger Steak w/Fries & Drinks", 133);
+    orderingSystem prodNine("1-pc. Burger Steak", 60);
+    orderingSystem prodTen("2-pc. Burger Steak", 119);
+    orderingSystem prodEleven("Jolly Spaghetti w/Burger Steak", 108);
+    orderingSystem prodTwelve("1-pc. Chicken w/Burger Steak & Half Jolly Spaghetti Super Meal", 212);
+
+    int choice;
+
+do
+{
+        
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|\t\t\t   JOLLIBEE BEST SELLER MENU                            |\n";
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|[1]" << prodOne.productName << "\n";
+    cout << "|[2]" << prodTwo.productName << "\n";
+    cout << "|[3]" << prodThree.productName << "\n";
+    cout << "|[4]" << prodFour.productName << "\n";
+    cout << "|[5]" << prodFive.productName << "\n";
+    cout << "|[6]" << prodSix.productName << "\n";
+    cout << "|[7]" << prodSeven.productName << "\n";
+    cout << "|[8]" << prodEight.productName << "\n";
+    cout << "|[9]" << prodNine.productName << "\n";
+    cout << "|[10]" << prodTen.productName << "\n";
+    cout << "|[11]" << prodEleven.productName << "\n";
+    cout << "|[12]" << prodTwelve.productName << "\n";
+    cout << "|[0]Back\n";
+    cout << "---------------------------------------------------------------------------------\n";
+     
+    cout << "Enter Choice: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+               
+        prodOne.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+        cout << "Enter Quantity: ";
+        cin >> quantityNine[0];
+
+             totalBill += prodOne.productPrice * quantityNine[0];
+             orderStorageNine[0] += prodOne.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 2:
+            
+        prodTwo.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[1];
+
+             totalBill += prodTwo.productPrice * quantityNine[1];
+             orderStorageNine[1] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 3:
+              
+        prodThree.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[2];
+
+             totalBill += prodThree.productPrice * quantityNine[2];
+             orderStorageNine[2] += prodThree.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 4:
+
+        prodFour.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[3];
+
+             totalBill += prodFour.productPrice * quantityNine[3];
+             orderStorageNine[3] += prodFour.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 5:
+
+        prodFive.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[4];
+
+             totalBill += prodFive.productPrice * quantityNine[4];
+             orderStorageNine[4] += prodFive.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 6:
+            
+        prodSix.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[5];
+
+             totalBill += prodSix.productPrice * quantityNine[5];
+             orderStorageNine[5] += prodSix.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 7: 
+
+        prodSeven.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[6];
+
+             totalBill += prodSeven.productPrice * quantityNine[6];
+             orderStorageNine[6] += prodSeven.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 8:
+
+        prodEight.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[7];
+
+             totalBill += prodEight.productPrice * quantityNine[7];
+             orderStorageNine[7] += prodEight.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 9:
+
+        prodNine.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[8];
+
+             totalBill += prodNine.productPrice * quantityNine[8];
+             orderStorageNine[8] += prodNine.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 10:
+
+        prodTen.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[9];
+
+             totalBill += prodTwo.productPrice * quantityNine[9];
+             orderStorageNine[9] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 11:
+
+        prodEleven.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[10];
+
+             totalBill += prodEleven.productPrice * quantityNine[10];
+             orderStorageNine[10] += prodEleven.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 12:
+             
+        prodTwelve.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityNine[11];
+
+             totalBill += prodTwelve.productPrice * quantityNine[11];
+             orderStorageNine[11] += prodTwelve.productName; 
+        }
+        
+        else
+        {
+             burgerSteakFunc();
+        }
+
+        break;
+
+    case 0:
+
+        break;
+        
+    default:
+
+         cout << "------------------------------\n";
+         cout << "|\tInvalid Choice!      |\n";
+         cout << "------------------------------\n";
+               
+         burgerSteakFunc();  
+
+        break;
+    }
+} 
+    
+while (choice != 0);
+
+jollibeeMenuFunc();
+
+}
+
+void orderingSystem :: superMealsFunc(){
+
+    orderingSystem prodOne("1-pc. Chickenjoy w/Regular Fries & Half Jolly Spaghetti Super Meal", 191);
+    orderingSystem prodTwo("1-pc. Chickenjoy w/Burger Steak & Half Jolly Spaghetti Super Meal", 212);
+    orderingSystem prodThree("Yumburger, Half Jolly Spaghetti & Reg. Fries Super Meal",137);
+
+    int choice;
+
+do
+{
+        
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|\t\t\t   JOLLIBEE BEST SELLER MENU                            |\n";
+    cout << "---------------------------------------------------------------------------------\n";
+    cout << "|[1]" << prodOne.productName << "\n";
+    cout << "|[2]" << prodTwo.productName << "\n";
+    cout << "|[3]" << prodThree.productName << "\n";
+    cout << "|[0]Back\n";
+    cout << "---------------------------------------------------------------------------------\n";
+     
+    cout << "Enter Choice: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+               
+        prodOne.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+        cout << "Enter Quantity: ";
+        cin >> quantityTen[0];
+
+             totalBill += prodOne.productPrice * quantityTen[0];
+             orderStorageTen[0] += prodOne.productName; 
+        }
+        
+        else
+        {
+             superMealsFunc();
+        }
+
+        break;
+
+    case 2:
+            
+        prodTwo.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityTen[1];
+
+             totalBill += prodTwo.productPrice * quantityTen[1];
+             orderStorageTen[1] += prodTwo.productName; 
+        }
+        
+        else
+        {
+             superMealsFunc();
+        }
+
+        break;
+
+    case 3:
+              
+        prodThree.printProduct();
+
+        cout << "[1]Order\n";
+        cout << "[2]Back\n";
+
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {   
+             cout << "Enter Quantity: ";
+             cin >> quantityTen[2];
+
+             totalBill += prodThree.productPrice * quantityTen[2];
+             orderStorageTen[2] += prodThree.productName; 
+        }
+        
+        else
+        {
+             superMealsFunc();
+        }
+
+        break;
+
+    case 0:
+
+        break;
+        
+    default:
+
+         cout << "------------------------------\n";
+         cout << "|\tInvalid Choice!      |\n";
+         cout << "------------------------------\n";
+               
+         superMealsFunc();  
 
         break;
     }
